@@ -27,7 +27,7 @@ public class Controller {
         if (response.isSuccess()) {
             return ResponseEntity.ok(response.body());
         } else {
-            throw new RuntimeException(response.raw().toString());
+            return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(response.raw().toString());
         }
     }
 
